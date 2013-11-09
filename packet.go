@@ -48,7 +48,7 @@ func NewPacket(b []byte, sourceAddr *net.UDPAddr) (p *Packet, err error) {
 
 	// Unpack the headers
 	headers := PacketHeaders{}
-	err = json.Unmarshal(b[3:3 + jsonSz], headers)
+	err = json.Unmarshal(b[3:3 + jsonSz], &headers)
 	if err != nil {
 		return nil, err
 	}
